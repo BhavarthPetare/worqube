@@ -69,17 +69,6 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="https://pictsctr.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center"
-                >
-                  PICT Student Council
-                  <ExternalLink className="h-3.5 w-3.5 ml-1" />
-                </a>
-              </li>
-              <li>
-                <a
                   href="#"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -95,7 +84,7 @@ const Footer = () => {
 
         <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground">
-            © {currentYear} PICT Training & Placement Cell. All rights reserved.
+            © {currentYear} Worqube.
           </p>
           <div className="mt-4 md:mt-0 flex space-x-6">
             <a href="#" className="text-muted-foreground hover:text-primary transition-colors">

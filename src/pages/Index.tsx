@@ -2,8 +2,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { FaMicrosoft, FaGoogle } from 'react-icons/fa';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowRight, BriefcaseIcon, Building2, CheckCircle2, ChevronRight, GraduationCap, LineChart, Users } from 'lucide-react';
+import { ArrowRight, BriefcaseIcon, Building2, CheckCircle2, ChevronRight, GraduationCap, Instagram, LineChart, Users } from 'lucide-react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 
@@ -11,13 +12,13 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="pt-32 pb-16 md:pt-40 md:pb-20 page-container">
         <div className="max-w-3xl mx-auto text-center space-y-6 page-transition">
           <div className="inline-flex items-center bg-primary/10 text-primary rounded-full px-3 py-1 text-sm font-medium mb-2">
             <span className="bg-primary rounded-full w-2 h-2 mr-2"></span>
-            PICT Training & Placement Cell
+            Worqube, PICT
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-balance">
             Your Gateway to <span className="text-primary">Career Excellence</span>
@@ -38,7 +39,7 @@ const Index = () => {
             </Button>
           </div>
         </div>
-        
+
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20">
           <StatCard
@@ -58,7 +59,7 @@ const Index = () => {
           />
         </div>
       </section>
-      
+
       {/* Features Section */}
       <section className="py-16 bg-gradient-to-br from-muted/50 to-background">
         <div className="page-container">
@@ -68,7 +69,7 @@ const Index = () => {
               Our platform offers powerful tools to help students showcase their skills and connect with top employers.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <FeatureCard
               icon={<Users size={24} className="text-primary" />}
@@ -88,7 +89,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-      
+
       {/* Companies Section */}
       <section className="py-16 bg-white">
         <div className="page-container">
@@ -98,7 +99,7 @@ const Index = () => {
               We partner with leading companies across the globe to provide the best opportunities for our students.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
             <CompanyLogo name="Microsoft" />
             <CompanyLogo name="Google" />
@@ -107,7 +108,7 @@ const Index = () => {
             <CompanyLogo name="Oracle" />
             <CompanyLogo name="IBM" />
           </div>
-          
+
           <div className="text-center mt-12">
             <Button variant="outline" className="btn-effect">
               View All Recruiters <ChevronRight className="ml-1 h-4 w-4" />
@@ -115,7 +116,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-      
+
       {/* CTA Section */}
       <section className="py-20 bg-primary/5">
         <div className="page-container">
@@ -132,7 +133,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-      
+
       <Footer />
     </div>
   );
@@ -152,14 +153,14 @@ const StatCard = ({ number, label, icon }: { number: string; label: string; icon
   );
 };
 
-const FeatureCard = ({ 
-  icon, 
-  title, 
-  description 
-}: { 
-  icon: React.ReactNode; 
-  title: string; 
-  description: string 
+const FeatureCard = ({
+  icon,
+  title,
+  description
+}: {
+  icon: React.ReactNode;
+  title: string;
+  description: string
 }) => {
   return (
     <Card className="hover-scale overflow-hidden h-full">

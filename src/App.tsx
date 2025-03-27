@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import { createContext, useContext, useEffect, useState } from 'react';
 import { Session } from '@supabase/supabase-js';
 import { supabase } from './integrations/supabase/client';
@@ -21,7 +21,7 @@ export const AuthContext = createContext<{
 }>({
   session: null,
   isLoading: true,
-  signOut: async () => {},
+  signOut: async () => { },
 });
 
 export const useAuth = () => useContext(AuthContext);
@@ -58,9 +58,13 @@ const App = () => {
     return () => subscription.unsubscribe();
   }, [toast]);
 
+  // const navigate = useNavigate();
   const signOut = async () => {
     try {
       await supabase.auth.signOut();
+      // Use navigate for redirection
+      // navigate('/login');
+
     } catch (error) {
       console.error('Error signing out:', error);
     }
@@ -69,12 +73,12 @@ const App = () => {
   const ProtectedRoute = ({ children, requireAdmin = false }: { children: React.ReactNode, requireAdmin?: boolean }) => {
     if (isLoading) return <div className="flex items-center justify-center min-h-screen">Loading...</div>;
     if (!session) return <Navigate to="/login" replace />;
-    
+
     // Check if admin route requires admin role
     if (requireAdmin && session.user.user_metadata?.is_admin !== true) {
       return <Navigate to="/student-dashboard" replace />;
     }
-    
+
     return <>{children}</>;
   };
 
@@ -88,21 +92,21 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/login" element={<Login />} />
-              <Route 
-                path="/student-dashboard" 
+              <Route
+                path="/student-dashboard"
                 element={
                   <ProtectedRoute>
                     <StudentDashboard />
                   </ProtectedRoute>
-                } 
+                }
               />
-              <Route 
-                path="/admin-dashboard" 
+              <Route
+                path="/admin-dashboard"
                 element={
                   <ProtectedRoute requireAdmin={true}>
                     <AdminDashboard />
                   </ProtectedRoute>
-                } 
+                }
               />
               <Route path="*" element={<NotFound />} />
             </Routes>

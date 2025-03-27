@@ -4,28 +4,31 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { 
-  BellIcon, 
-  BriefcaseIcon, 
-  FileText, 
-  HomeIcon, 
-  LogOut, 
-  Menu, 
-  MessageSquare, 
-  Settings, 
-  UserIcon, 
+import {
+  BellIcon,
+  BriefcaseIcon,
+  FileText,
+  HomeIcon,
+  LogOut,
+  Menu,
+  MessageSquare,
+  Settings,
+  UserIcon,
   X
 } from 'lucide-react';
 import StudentProfile from '@/components/dashboard/StudentProfile';
 import JobListings from '@/components/dashboard/JobListings';
+import { useAuth } from '@/App';
 
 const StudentDashboard = () => {
   const [activeTab, setActiveTab] = useState('profile');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const { signOut } = useAuth();
 
   const handleLogout = () => {
     // Here we would normally handle the logout logic
+    signOut();
     navigate('/login');
   };
 
@@ -35,54 +38,53 @@ const StudentDashboard = () => {
       <aside className="hidden md:flex w-64 flex-col bg-white border-r border-border h-screen sticky top-0">
         <div className="p-4 border-b border-border flex items-center">
           <Link to="/student-dashboard" className="text-primary font-semibold text-xl flex items-center space-x-2">
-            <span className="bg-primary text-white rounded-md p-1">T&P</span>
-            <span>PICT</span>
+            <span className="bg-primary text-white rounded-md p-1">Worqube</span>
           </Link>
         </div>
-        
+
         <nav className="flex-1 p-4 space-y-1">
-          <NavItem 
-            icon={<UserIcon size={18} />} 
-            label="My Profile" 
-            active={activeTab === 'profile'} 
-            onClick={() => setActiveTab('profile')} 
+          <NavItem
+            icon={<UserIcon size={18} />}
+            label="My Profile"
+            active={activeTab === 'profile'}
+            onClick={() => setActiveTab('profile')}
           />
-          <NavItem 
-            icon={<BriefcaseIcon size={18} />} 
-            label="Job Listings" 
-            active={activeTab === 'jobs'} 
-            onClick={() => setActiveTab('jobs')} 
+          <NavItem
+            icon={<BriefcaseIcon size={18} />}
+            label="Job Listings"
+            active={activeTab === 'jobs'}
+            onClick={() => setActiveTab('jobs')}
           />
-          <NavItem 
-            icon={<BellIcon size={18} />} 
-            label="Notifications" 
-            active={activeTab === 'notifications'} 
-            onClick={() => setActiveTab('notifications')} 
+          <NavItem
+            icon={<BellIcon size={18} />}
+            label="Notifications"
+            active={activeTab === 'notifications'}
+            onClick={() => setActiveTab('notifications')}
           />
-          <NavItem 
-            icon={<FileText size={18} />} 
-            label="Resume" 
-            active={activeTab === 'resume'} 
-            onClick={() => setActiveTab('resume')} 
+          <NavItem
+            icon={<FileText size={18} />}
+            label="Resume"
+            active={activeTab === 'resume'}
+            onClick={() => setActiveTab('resume')}
           />
-          <NavItem 
-            icon={<MessageSquare size={18} />} 
-            label="Messages" 
-            active={activeTab === 'messages'} 
-            onClick={() => setActiveTab('messages')} 
+          <NavItem
+            icon={<MessageSquare size={18} />}
+            label="Messages"
+            active={activeTab === 'messages'}
+            onClick={() => setActiveTab('messages')}
           />
         </nav>
-        
+
         <div className="p-4 border-t border-border">
-          <NavItem 
-            icon={<Settings size={18} />} 
-            label="Settings" 
-            active={activeTab === 'settings'} 
-            onClick={() => setActiveTab('settings')} 
+          <NavItem
+            icon={<Settings size={18} />}
+            label="Settings"
+            active={activeTab === 'settings'}
+            onClick={() => setActiveTab('settings')}
           />
-          <Button 
-            variant="ghost" 
-            className="w-full justify-start text-muted-foreground hover:text-destructive hover:bg-destructive/10 mt-2" 
+          <Button
+            variant="ghost"
+            className="w-full justify-start text-muted-foreground hover:text-destructive hover:bg-destructive/10 mt-2"
             onClick={handleLogout}
           >
             <LogOut size={18} className="mr-2" />
@@ -100,9 +102,9 @@ const StudentDashboard = () => {
               <span className="bg-primary text-white rounded-md p-1">T&P</span>
               <span>PICT</span>
             </Link>
-            
-            <button 
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
+
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="text-foreground p-1"
               aria-label="Toggle menu"
             >
@@ -113,64 +115,64 @@ const StudentDashboard = () => {
           {/* Mobile menu */}
           {mobileMenuOpen && (
             <nav className="mt-4 space-y-2 animate-fade-in">
-              <MobileNavItem 
-                icon={<UserIcon size={18} />} 
-                label="My Profile" 
-                active={activeTab === 'profile'} 
+              <MobileNavItem
+                icon={<UserIcon size={18} />}
+                label="My Profile"
+                active={activeTab === 'profile'}
                 onClick={() => {
                   setActiveTab('profile');
                   setMobileMenuOpen(false);
-                }} 
+                }}
               />
-              <MobileNavItem 
-                icon={<BriefcaseIcon size={18} />} 
-                label="Job Listings" 
-                active={activeTab === 'jobs'} 
+              <MobileNavItem
+                icon={<BriefcaseIcon size={18} />}
+                label="Job Listings"
+                active={activeTab === 'jobs'}
                 onClick={() => {
                   setActiveTab('jobs');
                   setMobileMenuOpen(false);
-                }} 
+                }}
               />
-              <MobileNavItem 
-                icon={<BellIcon size={18} />} 
-                label="Notifications" 
-                active={activeTab === 'notifications'} 
+              <MobileNavItem
+                icon={<BellIcon size={18} />}
+                label="Notifications"
+                active={activeTab === 'notifications'}
                 onClick={() => {
                   setActiveTab('notifications');
                   setMobileMenuOpen(false);
-                }} 
+                }}
               />
-              <MobileNavItem 
-                icon={<FileText size={18} />} 
-                label="Resume" 
-                active={activeTab === 'resume'} 
+              <MobileNavItem
+                icon={<FileText size={18} />}
+                label="Resume"
+                active={activeTab === 'resume'}
                 onClick={() => {
                   setActiveTab('resume');
                   setMobileMenuOpen(false);
-                }} 
+                }}
               />
-              <MobileNavItem 
-                icon={<MessageSquare size={18} />} 
-                label="Messages" 
-                active={activeTab === 'messages'} 
+              <MobileNavItem
+                icon={<MessageSquare size={18} />}
+                label="Messages"
+                active={activeTab === 'messages'}
                 onClick={() => {
                   setActiveTab('messages');
                   setMobileMenuOpen(false);
-                }} 
+                }}
               />
               <Separator className="my-2" />
-              <MobileNavItem 
-                icon={<Settings size={18} />} 
-                label="Settings" 
-                active={activeTab === 'settings'} 
+              <MobileNavItem
+                icon={<Settings size={18} />}
+                label="Settings"
+                active={activeTab === 'settings'}
                 onClick={() => {
                   setActiveTab('settings');
                   setMobileMenuOpen(false);
-                }} 
+                }}
               />
-              <Button 
-                variant="ghost" 
-                className="w-full justify-start text-destructive hover:bg-destructive/10" 
+              <Button
+                variant="ghost"
+                className="w-full justify-start text-destructive hover:bg-destructive/10"
                 onClick={handleLogout}
               >
                 <LogOut size={18} className="mr-2" />
@@ -240,24 +242,23 @@ const StudentDashboard = () => {
   );
 };
 
-const NavItem = ({ 
-  icon, 
-  label, 
-  active, 
-  onClick 
-}: { 
-  icon: React.ReactNode; 
-  label: string; 
-  active: boolean; 
-  onClick: () => void; 
+const NavItem = ({
+  icon,
+  label,
+  active,
+  onClick
+}: {
+  icon: React.ReactNode;
+  label: string;
+  active: boolean;
+  onClick: () => void;
 }) => {
   return (
     <button
-      className={`w-full flex items-center p-2 rounded-md transition-colors ${
-        active 
-          ? 'bg-primary/10 text-primary font-medium' 
-          : 'text-muted-foreground hover:bg-secondary hover:text-foreground'
-      }`}
+      className={`w-full flex items-center p-2 rounded-md transition-colors ${active
+        ? 'bg-primary/10 text-primary font-medium'
+        : 'text-muted-foreground hover:bg-secondary hover:text-foreground'
+        }`}
       onClick={onClick}
     >
       <span className="mr-3">{icon}</span>
@@ -266,24 +267,23 @@ const NavItem = ({
   );
 };
 
-const MobileNavItem = ({ 
-  icon, 
-  label, 
-  active, 
-  onClick 
-}: { 
-  icon: React.ReactNode; 
-  label: string; 
-  active: boolean; 
-  onClick: () => void; 
+const MobileNavItem = ({
+  icon,
+  label,
+  active,
+  onClick
+}: {
+  icon: React.ReactNode;
+  label: string;
+  active: boolean;
+  onClick: () => void;
 }) => {
   return (
     <button
-      className={`w-full flex items-center p-3 rounded-md transition-colors ${
-        active 
-          ? 'bg-primary/10 text-primary font-medium' 
-          : 'text-muted-foreground hover:bg-secondary hover:text-foreground'
-      }`}
+      className={`w-full flex items-center p-3 rounded-md transition-colors ${active
+        ? 'bg-primary/10 text-primary font-medium'
+        : 'text-muted-foreground hover:bg-secondary hover:text-foreground'
+        }`}
       onClick={onClick}
     >
       <span className="mr-3">{icon}</span>
