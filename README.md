@@ -1,1 +1,67 @@
-# 🎓 Worqube\n\n> **Placement and TNP Management Platform**\n\nWorqube is a comprehensive web application built to streamline the campus placement process. Designed to handle the rigorous demands of Training and Placement (TNP) cells at engineering institutions like Pune Institute of Computer Technology, Worqube increases operational efficiency, ensures data accuracy, and bridges the gap between students, college coordinators, and recruiters.\n\n## 🚀 Tech Stack\n\n- **Frontend:** React\n- **Backend:** Node.js, Express\n- **Database:** MongoDB\n- **Authentication & Storage:** Supabase\n\n## ✨ Key Features\n\n- **Centralized Data Management:** Securely manage student profiles, academic records, and placement data in one unified dashboard.\n- **Streamlined Workflows:** Automate job postings, student application tracking, and interview scheduling.\n- **Operational Efficiency:** Reduce manual paperwork and eliminate redundant data entry for TNP coordinators.\n- **Secure Access Control:** Robust role-based authentication backed by Supabase, ensuring data privacy for students and administrators.\n\n## 🛠️ Installation & Setup\n\n### Prerequisites\nMake sure you have [Node.js](https://nodejs.org/) and [Git](https://git-scm.com/) installed on your machine. You will also need active MongoDB and Supabase projects.\n\n### 1. Clone the repository\n```bash\ngit clone [https://github.com/BhavarthPetare/worqube.git](https://github.com/BhavarthPetare/worqube.git)\ncd worqube\n```\n\n### 2. Install Dependencies\nInstall packages for both the client and server.\n\n```bash\n# Install frontend dependencies\ncd client\nnpm install\n\n# Install backend dependencies\ncd ../server\nnpm install\n```\n\n### 3. Environment Variables\nCreate a `.env` file in the root of both your `client` and `server` directories. You will need to configure the following variables:\n\n**Server (`server/.env`):**\n```env\nPORT=5000\nMONGO_URI=your_mongodb_connection_string\n```\n\n**Client (`client/.env`):**\n```env\nREACT_APP_SUPABASE_URL=your_supabase_project_url\nREACT_APP_SUPABASE_ANON_KEY=your_supabase_anon_key\n```\n\n### 4. Run the Application\n\n```bash\n# Start the Express server (from the /server directory)\nnpm run dev\n\n# Start the React development server (from the /client directory)\nnpm start\n```\n\n## 👨‍💻 Author\n\n**Bhavarth Petare**\n- GitHub: [@BhavarthPetare](https://github.com/BhavarthPetare)\n"
+# 🎓 Worqube
+**Placement and TNP Management Platform**
+Worqube is a comprehensive web application built to streamline the campus placement process. Designed to handle the rigorous demands of Training and Placement (TNP) cells at engineering institutions like Pune Institute of Computer Technology, Worqube increases operational efficiency, ensures data accuracy, and bridges the gap between students, college coordinators, and recruiters.
+## 🚀 Tech Stack
+**Frontend:** React
+
+**Backend:** Node.js, Express
+
+**Database:** MongoDB
+
+**Authentication & Storage:** Supabase
+
+## ✨ Key Features
+**Centralized Data Management:** Securely manage student profiles, academic records, and placement data in one unified dashboard.
+
+**Streamlined Workflows:** Automate job postings, student application tracking, and interview scheduling.
+
+**Operational Efficiency:** Reduce manual paperwork and eliminate redundant data entry for TNP coordinators.
+
+**Secure Access Control:** Robust role-based authentication backed by Supabase, ensuring data privacy for students and administrators.
+
+## 🛠️ Installation & Setup
+### Prerequisites
+Make sure you have [Node.js](https://nodejs.org/) and [Git](https://git-scm.com/) installed on your machine. You will also need active MongoDB and Supabase projects.
+
+### 1. Clone the repository
+```git clone https://github.com/BhavarthPetare/worqube.git```
+
+```cd worqube```
+
+### 2. Install Dependencies
+Install packages for both the client and server.
+
+```cd client```
+
+```npm install```
+
+```cd ../server```
+
+```npm install```
+
+### 3. Environment Variables
+Create a `.env` file in the root of both your `client` and `server` directories. You will need to configure the following variables:
+
+**Server (`server/.env`):**
+
+```env```
+```PORT=5000```
+```MONGO_URI=your_mongodb_connection_string```
+
+**Client (`client/.env`):**
+
+```env```
+```REACT_APP_SUPABASE_URL=your_supabase_project_url```
+```REACT_APP_SUPABASE_ANON_KEY=your_supabase_anon_key```
+
+### 4. Run the Application
+
+```# Start the Express server (from the /server directory)```
+
+```npm run dev```
+
+```npm start```
+
+## 👨‍💻 Author
+**Bhavarth Petare**
+GitHub: [@BhavarthPetare](https://github.com/BhavarthPetare)
