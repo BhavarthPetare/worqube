@@ -1,7 +1,7 @@
 {
   "name": "worqube",
   "private": true,
-  "description": "Placement portal for PICT's Training & Placement cell (React + Express + MongoDB)",
+  "description": "Worqube is a placement portal for the Training & Placement cell at PICT, Pune.",
   "engines": { "node": ">=20.19" },
   "scripts": {
     "install:all": "npm install --prefix client && npm install --prefix server",
