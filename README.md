@@ -132,9 +132,6 @@ Fork the repository and create a branch. Make your change, then run `npm test` a
 
 Planned next: email and in-app notifications, so students hear about status changes without opening the app. Out of scope for now: interview scheduling and company logins. Ideas and bugs go in the [issue tracker](https://github.com/BhavarthPetare/worqube/issues).
 
-## History
-
-The first version was a Lovable prototype on Supabase. The Supabase project was deleted, so nobody could sign in. Anyone could also register as an admin by picking a tab on the sign-up form. I rebuilt the backend on Express and MongoDB and closed that hole. I replaced the mock job board with real data. I removed the screens that did nothing: notifications, messages and theme settings.
 
 ## License
 
